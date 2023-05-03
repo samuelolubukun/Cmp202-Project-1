@@ -56,7 +56,7 @@ public class Main {
                     float acceleration = input.nextFloat();
                     System.out.println("Enter the time (in seconds):");
                     time = input.nextFloat();
-                    result = myObj.calculateFinalVelocity(initialVelocity, acceleration, time);
+                    result = myObj.calculateFinalVelocity (initialVelocity, acceleration, time);
                     break;
 
                 default:

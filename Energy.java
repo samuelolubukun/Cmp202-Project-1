@@ -14,7 +14,7 @@ public class Energy extends Physics {
     public float calculatePower(float work, float time) {
         return divide(work,time);
     }
-    public float calculateFinalVelocity(float initialVelocity, float acceleration, float time) {
+    public float calculateFinalVelocity (float initialVelocity, float acceleration, float time) {
         return addition(initialVelocity, acceleration)*time;
     }
 }
