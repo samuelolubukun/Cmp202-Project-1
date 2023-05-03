@@ -33,6 +33,13 @@ public class Main {
                     float velocity = input.nextFloat();
                     result = myObj.calculateKineticEnergy(mass, velocity);
                     break;
+                case 3:
+                    System.out.println("Enter the force (in N):");
+                    float force = input.nextFloat();
+                    System.out.println("Enter the distance (in meters):");
+                    float distance = input.nextFloat();
+                    result = myObj.calculateWork(force, distance);
+                    break;
 
                 default:
                     System.out.println("Invalid choice.");
