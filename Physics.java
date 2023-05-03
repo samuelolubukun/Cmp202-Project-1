@@ -16,5 +16,7 @@ public class Physics {
     float divide(float numberOne, float numberTwo){
         return numberOne / numberTwo;
     }
-
+    float addition(float numberOne, float numberTwo){return numberOne + numberTwo;}
 }
+
+

@@ -49,6 +49,15 @@ public class Main {
                     float time = input.nextFloat();
                     result = myObj.calculatePower(work, time);
                     break;
+                case 5:
+                    System.out.println("Enter the initial velocity (in m/s):");
+                    float initialVelocity = input.nextFloat();
+                    System.out.println("Enter the acceleration (in m/s^2):");
+                    float acceleration = input.nextFloat();
+                    System.out.println("Enter the time (in seconds):");
+                    time = input.nextFloat();
+                    result = myObj.calculateFinalVelocity(initialVelocity, acceleration, time);
+                    break;
 
                 default:
                     System.out.println("Invalid choice.");
