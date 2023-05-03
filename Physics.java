@@ -13,4 +13,8 @@ public class Physics {
         return numberOne * numberTwo;
     }
 
+    float divide(float numberOne, float numberTwo){
+        return numberOne / numberTwo;
+    }
+
 }

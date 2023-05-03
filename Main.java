@@ -33,12 +33,21 @@ public class Main {
                     float velocity = input.nextFloat();
                     result = myObj.calculateKineticEnergy(mass, velocity);
                     break;
+
                 case 3:
                     System.out.println("Enter the force (in N):");
                     float force = input.nextFloat();
                     System.out.println("Enter the distance (in meters):");
                     float distance = input.nextFloat();
                     result = myObj.calculateWork(force, distance);
+                    break;
+
+                case 4:
+                    System.out.println("Enter the work (in J):");
+                    float work = input.nextFloat();
+                    System.out.println("Enter the time (in seconds):");
+                    float time = input.nextFloat();
+                    result = myObj.calculatePower(work, time);
                     break;
 
                 default:

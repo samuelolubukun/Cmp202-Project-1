@@ -10,4 +10,8 @@ public class Energy extends Physics {
     public float calculateWork(float force,float distance) {
         return multiply(force, distance);
     }
+
+    public float calculatePower(float work, float time) {
+        return divide(work,time);
+    }
 }
