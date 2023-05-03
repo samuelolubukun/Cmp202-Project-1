@@ -26,6 +26,14 @@ public class Main {
                     result = myObj.calculatePotentialEnergy(mass, height);
                     break;
 
+                case 2:
+                    System.out.println("Enter the mass (in kg):");
+                    mass = input.nextFloat();
+                    System.out.println("Enter the velocity (in m/s):");
+                    float velocity = input.nextFloat();
+                    result = myObj.calculateKineticEnergy(mass, velocity);
+                    break;
+
                 default:
                     System.out.println("Invalid choice.");
             }

@@ -4,4 +4,8 @@ public class Physics {
     public float getGravity() {
         return gravity;
     }
+
+    float powTwo(float num1) {
+        return num1 * num1;
+    }
 }
