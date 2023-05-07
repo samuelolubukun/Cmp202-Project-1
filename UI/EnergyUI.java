@@ -8,6 +8,7 @@ import Physicsoop.Energy;
 public class EnergyUI {
     JFrame frame = new JFrame("PhysicsUI Calc");
     JButton potentialEnergyBtn = new JButton("Potential Energy");
+    JButton powerBtn = new JButton("Power");
 
     public void MainUI() {
         potentialEnergyBtn.addActionListener(new ActionListener() {
@@ -16,7 +17,16 @@ public class EnergyUI {
                 drawPotentialEnergyUI();
             }
         });
+
+        powerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawPowerUI();
+            }
+        });
+
         frame.add(potentialEnergyBtn);
+        frame.add(powerBtn);
         frame.setSize(200, 100);
         frame.setLayout(new FlowLayout());
         frame.setVisible(true);
@@ -54,6 +64,40 @@ public class EnergyUI {
 
         potentialEnergyFrame.setVisible(true);
     }
+
+
+    JFrame powerFrame = new JFrame("Power");
+    JLabel workLabel = new JLabel("Enter work(J):");
+    JLabel timeLabel = new JLabel("Enter time(s)");
+    JTextField workTextField = new JTextField();
+    JTextField timeTextField = new JTextField();
+    JButton calculatePowerBtn = new JButton("Calculate");
+
+
+    public void drawPowerUI() {
+        Energy myObj = new Energy();
+        powerFrame.setLayout(new GridLayout(3, 2));
+        powerFrame.setSize(300, 150);
+
+        powerFrame.add(workLabel);
+        powerFrame.add(workTextField);
+        powerFrame.add(timeLabel);
+        powerFrame.add(timeTextField);
+        powerFrame.add(calculatePowerBtn);
+
+        calculatePowerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float work = Float.parseFloat(workTextField.getText());
+                float time = Float.parseFloat(timeTextField.getText());
+                float result = myObj.calculatePower(work, time);
+                JOptionPane.showMessageDialog(null, "Power = " + result + " W");
+            }
+        });
+
+        powerFrame.setVisible(true);
+    }
+
 
 }
 
