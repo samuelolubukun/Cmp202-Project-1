@@ -95,17 +95,16 @@ public class EnergyUI {
         Energy myObj = new Energy();
         kineticEnergyFrame.setLayout(new GridLayout(3, 2));
         kineticEnergyFrame.setSize(300, 150);
-
         kineticEnergyFrame.add(massLabel3);
         kineticEnergyFrame.add(massTextField3);
         kineticEnergyFrame.add(velocityLabel);
         kineticEnergyFrame.add(velocityTextField);
         kineticEnergyFrame.add(calculateKineticEnergyBtn);
 
-        calculatePotentialEnergyBtn.addActionListener(new ActionListener() {
+        calculateKineticEnergyBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float mass = Float.parseFloat(massTextField.getText());
+                float mass = Float.parseFloat(massTextField3.getText());
                 float velocity = Float.parseFloat(velocityTextField.getText());
                 float result = myObj.calculateKineticEnergy(mass, velocity);
                 JOptionPane.showMessageDialog(null, "Kinetic Energy = " + result + "kgm/s");

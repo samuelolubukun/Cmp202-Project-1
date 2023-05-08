@@ -7,7 +7,7 @@ public class Physics {
         return gravity;
     }
 
-    float powTwo(float num1) {
+    public float powTwo(float num1) {
         return num1 * num1;
     }
 
