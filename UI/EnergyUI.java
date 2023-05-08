@@ -11,6 +11,7 @@ public class EnergyUI {
     JButton kineticEnergyBtn = new JButton("Kinetic Energy");
     JButton workBtn = new JButton("Work!");
     JButton powerBtn = new JButton("Power");
+    JButton finalvelocityBtn = new JButton("Final Velocity");
 
     public void MainUI() {
         potentialEnergyBtn.addActionListener(new ActionListener() {
@@ -42,10 +43,18 @@ public class EnergyUI {
             }
         });
 
+        finalvelocityBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawfinalvelocityUI();
+            }
+        });
+
         frame.add(potentialEnergyBtn);
         frame.add(kineticEnergyBtn);
         frame.add(workBtn);
         frame.add(powerBtn);
+        frame.add(finalvelocityBtn);
         frame.setSize(200, 400);
         frame.setLayout(new FlowLayout());
         frame.setVisible(true);
@@ -177,9 +186,47 @@ public class EnergyUI {
             powerFrame.setVisible(true);
         }
 
+    JFrame finalvelocityFrame = new JFrame("Final Velocity");
+    JLabel initialvelocityLabel = new JLabel("Enter Initial Velocity:");
+    JLabel accelerationLabel = new JLabel("Enter Acceleration");
+    JLabel timeLabel2 = new JLabel("Enter Time");
+    JTextField initialvelocityTextField = new JTextField();
+    JTextField accelerationTextField = new JTextField();
+    JTextField timeTextField2 = new JTextField();
+    JButton calculatefinalvelocityBtn = new JButton("Calculate");
 
 
+    public void drawfinalvelocityUI() {
+        Energy myObj = new Energy();
+        finalvelocityFrame.setLayout(new GridLayout(4, 3));
+        finalvelocityFrame.setSize(300, 150);
+
+        finalvelocityFrame.add(initialvelocityLabel);
+        finalvelocityFrame.add(initialvelocityTextField);
+        finalvelocityFrame.add(accelerationLabel);
+        finalvelocityFrame.add(accelerationTextField);
+        finalvelocityFrame.add(timeLabel2);
+        finalvelocityFrame.add(timeTextField2);
+        finalvelocityFrame.add(calculatefinalvelocityBtn);
+
+        calculatefinalvelocityBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float initialvelocity = Float.parseFloat(initialvelocityTextField.getText());
+                float acceleration = Float.parseFloat(accelerationTextField.getText());
+                float time = Float.parseFloat(timeTextField2.getText());
+                float result = myObj.calculateFinalVelocity(initialvelocity, acceleration, time);
+                JOptionPane.showMessageDialog(null, "Final Velocity = " + result + " m/s");
+            }
+        });
+
+        finalvelocityFrame.setVisible(true);
     }
+
+
+
+
+}
 
 
 

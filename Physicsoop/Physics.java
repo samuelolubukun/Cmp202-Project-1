@@ -18,7 +18,7 @@ public class Physics {
     public float divide(float numberOne, float numberTwo){
         return numberOne / numberTwo;
     }
-    float addition(float numberOne, float numberTwo) {return numberOne + numberTwo;}
+    public float addition(float numberOne, float numberTwo) {return numberOne + numberTwo;}
 }
 
 
