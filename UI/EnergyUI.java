@@ -9,6 +9,7 @@ public class EnergyUI {
     JFrame frame = new JFrame("PhysicsUI Calc");
     JButton potentialEnergyBtn = new JButton("Potential Energy");
     JButton kineticEnergyBtn = new JButton("Kinetic Energy");
+    JButton workBtn = new JButton("Work!");
     JButton powerBtn = new JButton("Power");
 
     public void MainUI() {
@@ -26,6 +27,13 @@ public class EnergyUI {
             }
         });
 
+        workBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawworkUI();
+            }
+        });
+
 
         powerBtn.addActionListener(new ActionListener() {
             @Override
@@ -36,6 +44,7 @@ public class EnergyUI {
 
         frame.add(potentialEnergyBtn);
         frame.add(kineticEnergyBtn);
+        frame.add(workBtn);
         frame.add(powerBtn);
         frame.setSize(200, 400);
         frame.setLayout(new FlowLayout());
@@ -106,7 +115,38 @@ public class EnergyUI {
         kineticEnergyFrame.setVisible(true);
     }
 
-        JFrame powerFrame = new JFrame("Power");
+    JFrame workFrame = new JFrame("Work!");
+    JLabel forceLabel = new JLabel("Enter force (N):");
+    JLabel distanceLabel = new JLabel("Enter Distance (m):");
+    JTextField forceTextField = new JTextField();
+    JTextField distanceTextField = new JTextField();
+    JButton calculateworkBtn = new JButton("Calculate");
+
+    public void drawworkUI() {
+        Energy myObj = new Energy();
+        workFrame.setLayout(new GridLayout(3, 2));
+        workFrame.setSize(300, 150);
+        workFrame.add(forceLabel);
+        workFrame.add(forceTextField);
+        workFrame.add(distanceLabel);
+        workFrame.add(distanceTextField);
+        workFrame.add(calculateworkBtn);
+
+        calculateworkBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float force = Float.parseFloat(forceTextField.getText());
+                float distance = Float.parseFloat(distanceTextField.getText());
+                float result = myObj.calculateWork(force, distance);
+                JOptionPane.showMessageDialog(null, "Potential Energy = " + result + " J");
+            }
+        });
+
+        workFrame.setVisible(true);
+    }
+
+
+    JFrame powerFrame = new JFrame("Power");
         JLabel workLabel = new JLabel("Enter work(J):");
         JLabel timeLabel = new JLabel("Enter time(s)");
         JTextField workTextField = new JTextField();

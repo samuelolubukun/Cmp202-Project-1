@@ -11,7 +11,7 @@ public class Physics {
         return num1 * num1;
     }
 
-    float multiply(float numberOne, float numberTwo){
+    public float multiply(float numberOne, float numberTwo){
         return numberOne * numberTwo;
     }
 
