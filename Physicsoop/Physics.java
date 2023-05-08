@@ -1,3 +1,5 @@
+package Physicsoop;
+
 public class Physics {
     private float gravity = 10f;
 

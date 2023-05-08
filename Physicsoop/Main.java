@@ -1,8 +1,13 @@
+package Physicsoop;
+import UI.EnergyUI;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        EnergyUI EngUI = new  EnergyUI();
+        EngUI.MainUI();
+
         Energy myObj = new Energy();
         Scanner input = new Scanner(System.in);
 
