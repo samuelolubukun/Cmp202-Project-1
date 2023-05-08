@@ -8,6 +8,7 @@ import Physicsoop.Energy;
 public class EnergyUI {
     JFrame frame = new JFrame("PhysicsUI Calc");
     JButton potentialEnergyBtn = new JButton("Potential Energy");
+    JButton kineticEnergyBtn = new JButton("Kinetic Energy");
     JButton powerBtn = new JButton("Power");
 
     public void MainUI() {
@@ -18,6 +19,14 @@ public class EnergyUI {
             }
         });
 
+        kineticEnergyBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawKineticEnergyUI();
+            }
+        });
+
+
         powerBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -26,8 +35,9 @@ public class EnergyUI {
         });
 
         frame.add(potentialEnergyBtn);
+        frame.add(kineticEnergyBtn);
         frame.add(powerBtn);
-        frame.setSize(200, 100);
+        frame.setSize(200, 400);
         frame.setLayout(new FlowLayout());
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,6 +73,37 @@ public class EnergyUI {
         });
 
         potentialEnergyFrame.setVisible(true);
+    }
+
+    JFrame kineticEnergyFrame = new JFrame("Kinetic Energy");
+    JLabel massLabel3 = new JLabel("Enter mass (kg):");
+    JLabel velocityLabel = new JLabel("Enter velocity (m/s):");
+    JTextField massTextField3 = new JTextField();
+    JTextField velocityTextField = new JTextField();
+    JButton calculateKineticEnergyBtn = new JButton("Calculate");
+
+    public void drawKineticEnergyUI() {
+        Energy myObj = new Energy();
+        kineticEnergyFrame.setLayout(new GridLayout(3, 2));
+        kineticEnergyFrame.setSize(300, 150);
+
+        kineticEnergyFrame.add(massLabel3);
+        kineticEnergyFrame.add(massTextField3);
+        kineticEnergyFrame.add(velocityLabel);
+        kineticEnergyFrame.add(velocityTextField);
+        kineticEnergyFrame.add(calculateKineticEnergyBtn);
+
+        calculatePotentialEnergyBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float mass = Float.parseFloat(massTextField.getText());
+                float velocity = Float.parseFloat(velocityTextField.getText());
+                float result = myObj.calculateKineticEnergy(mass, velocity);
+                JOptionPane.showMessageDialog(null, "Kinetic Energy = " + result + "kgm/s");
+            }
+        });
+
+        kineticEnergyFrame.setVisible(true);
     }
 
         JFrame powerFrame = new JFrame("Power");
