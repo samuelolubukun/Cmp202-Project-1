@@ -83,10 +83,14 @@ public class EnergyUI {
         calculatePotentialEnergyBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
                 float mass = Float.parseFloat(massTextField.getText());
                 float height = Float.parseFloat(heightTextField.getText());
                 float result = myObj.calculatePotentialEnergy(mass, height);
                 JOptionPane.showMessageDialog(null, "Potential Energy = " + result + " J");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+            }
             }
         });
 
