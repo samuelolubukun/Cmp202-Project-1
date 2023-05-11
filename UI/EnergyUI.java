@@ -180,11 +180,15 @@ public class EnergyUI {
             calculatePowerBtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    try {
                     float work = Float.parseFloat(workTextField.getText());
                     float time = Float.parseFloat(timeTextField.getText());
                     float result = myObj.calculatePower(work, time);
                     JOptionPane.showMessageDialog(null, "Power = " + result + " W");
-                }
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+                    }
+                    }
             });
 
             powerFrame.setVisible(true);
