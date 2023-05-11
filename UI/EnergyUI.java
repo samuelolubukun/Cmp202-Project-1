@@ -224,11 +224,15 @@ public class EnergyUI {
         calculatefinalvelocityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
                 float initialvelocity = Float.parseFloat(initialvelocityTextField.getText());
                 float acceleration = Float.parseFloat(accelerationTextField.getText());
                 float time = Float.parseFloat(timeTextField2.getText());
                 float result = myObj.calculateFinalVelocity(initialvelocity, acceleration, time);
                 JOptionPane.showMessageDialog(null, "Final Velocity = " + result + " m/s");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+                }
             }
         });
 
