@@ -9,7 +9,7 @@ public class EnergyUI {
     JFrame frame = new JFrame("PhysicsUI Calc");
     JButton potentialEnergyBtn = new JButton("Potential Energy");
     JButton kineticEnergyBtn = new JButton("Kinetic Energy");
-    JButton workBtn = new JButton("Work!");
+    JButton workBtn = new JButton("Work");
     JButton powerBtn = new JButton("Power");
     JButton finalvelocityBtn = new JButton("Final Velocity");
 
@@ -117,10 +117,14 @@ public class EnergyUI {
         calculateKineticEnergyBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
                 float mass = Float.parseFloat(massTextField3.getText());
                 float velocity = Float.parseFloat(velocityTextField.getText());
                 float result = myObj.calculateKineticEnergy(mass, velocity);
                 JOptionPane.showMessageDialog(null, "Kinetic Energy = " + result + "kgm/s");
+            } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+                }
             }
         });
 
