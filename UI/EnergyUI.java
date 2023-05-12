@@ -151,10 +151,14 @@ public class EnergyUI {
         calculateworkBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float force = Float.parseFloat(forceTextField.getText());
-                float distance = Float.parseFloat(distanceTextField.getText());
-                float result = myObj.calculateWork(force, distance);
-                JOptionPane.showMessageDialog(null, "Potential Energy = " + result + " J");
+                try {
+                    float force = Float.parseFloat(forceTextField.getText());
+                    float distance = Float.parseFloat(distanceTextField.getText());
+                    float result = myObj.calculateWork(force, distance);
+                    JOptionPane.showMessageDialog(null, "Potential Energy = " + result + " J");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+                }
             }
         });
 
